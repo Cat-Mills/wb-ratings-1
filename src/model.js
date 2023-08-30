@@ -65,3 +65,37 @@ Movie.init(
     sequelize: db,
   },
 )
+
+export class Rating extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+
+Rating.init(
+  {
+    rating_id:
+    {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    score:
+    {
+      type: DataTypes.INTEGER,
+    },
+  },
+  {
+    modelName: 'rating',
+    sequelize: db,
+    timestamps:true,
+    updatedAt:false
+}
+)
+
+//Create the relationships
+User.hasMany(Rating, { foreignKey: 'userId' })
+Rating.belongsTo(User, { foreignKey: 'userId' })
+
+Movie.hasMany(Rating, { foreignKey: 'movieId' })
+Rating.belongsTo(Movie, { foreignKey: 'movieId' })
