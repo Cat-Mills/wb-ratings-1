@@ -1,4 +1,4 @@
-import { Model } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import util from 'util';
 import connectToDB from './db.js';
 
@@ -16,6 +16,15 @@ User.init(
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    email:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password:{
+      type: DataTypes.STRING,
+      allowNull: false
     },
   },
   {
