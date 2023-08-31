@@ -1,11 +1,16 @@
 import { Sequelize } from 'sequelize';
 
+//!You must run "SET client_encoding TO 'UTF8';" in psql
+
+
 async function connectToDB(dbURI) {
   console.log(`Connecting to DB: ${dbURI}`);
 
   const sequelize = new Sequelize(dbURI, {
     logging: console.log, // set logging: false to disable outputting SQL queries to console
     define: {
+      // charset: 'utf8',
+      // collate: 'utf8_general_ci',
       underscored: true,
       timestamps: false,
     },
