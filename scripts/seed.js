@@ -30,14 +30,14 @@ for(let i = 1; i <= 10; i++){
         password: 'test'
     })
 }
-console.log(usersInDB)
 
 const usersInDB = await Promise.all(
     usersToCreate.map((user) => {
         return User.create(user)
     })
-)
-
+    )
+    // console.log(usersInDB)
+    
 const ratingsInDB = await Promise.all(
     usersInDB.flatMap((user) => {
         const randomMovies = lodash.sampleSize(moviesInDB,10)
@@ -52,7 +52,7 @@ const ratingsInDB = await Promise.all(
         return movieRatings
     })
 )
-console.log(ratingsInDB)
+// console.log(ratingsInDB)
 
 await db.close()
 console.log('Finished seeding database!')

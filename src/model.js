@@ -41,7 +41,7 @@ export class Movie extends Model {
 
 Movie.init(
   {
-    movie_id:{
+    movieId:{
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
@@ -53,10 +53,10 @@ Movie.init(
     overview:{
       type: DataTypes.TEXT,
     },
-    release_date:{
+    releaseDate:{
       type: DataTypes.DATE
     },
-    poster_path:{
+    posterPath:{
       type: DataTypes.STRING
     },
   },

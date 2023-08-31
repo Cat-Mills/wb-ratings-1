@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 
-//!You must run "SET client_encoding TO 'UTF8';" in psql
+//!You must run "SET client_encoding TO 'UTF8';" in psql every time you select data.
 
 
 async function connectToDB(dbURI) {
